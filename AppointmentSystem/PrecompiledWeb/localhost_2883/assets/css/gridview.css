@@ -1,0 +1,10 @@
+    .rows
+    {
+        background-color: #fff;
+        font-family: Verdana;
+        font-size: 13px;
+        color: #000;
+        min-height: 25px;
+        text-align: left;
+        border: none 0px transparent;
+    }

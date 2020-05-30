@@ -1,0 +1,233 @@
+﻿<%@ master language="C#" autoeventwireup="true" inherits="Receptionest_ReceptionestMaster, App_Web_jkebn55d" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta charset="utf-8" />
+    <title id="atitle" runat="server" ></title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+    <!-- ================== BEGIN BASE CSS STYLE ================== -->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+ 	<link href="../assets/plugins/jquery-ui-1.10.4/themes/base/minified/jquery-ui.min.css" rel="stylesheet" />
+	<link href="../assets/plugins/bootstrap-3.2.0/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="../assets/plugins/font-awesome-4.2.0/css/font-awesome.min.css" rel="stylesheet" />
+	<link href="../assets/css/animate.min.css" rel="stylesheet" />
+	<link href="../assets/css/style.min.css" rel="stylesheet" />
+	<link href="../assets/css/style-responsive.min.css" rel="stylesheet" />
+
+    <!-- ================== END BASE CSS STYLE ================== -->
+	
+	<!-- ================== BEGIN PAGE LEVEL STYLE ================== -->
+	<link href="../assets/plugins/jquery-jvectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet" />
+	<link href="../assets/plugins/bootstrap-datepicker/css/datepicker.css" rel="stylesheet" />
+	<link href="../assets/plugins/bootstrap-datepicker/css/datepicker3.css" rel="stylesheet" />
+
+    <link href="../assets/plugins/gritter/css/jquery.gritter.css" rel="stylesheet" />
+
+    <link href="../assets/plugins/switchery/switchery.min.css" rel="stylesheet" />
+	<link href="../assets/plugins/powerange/powerange.min.css" rel="stylesheet" />
+
+    <link href="../assets/plugins/DataTables-1.9.4/css/data-table.css" rel="stylesheet" />
+    
+</head>
+<body>
+<div id="page-loader" class="fade in"><span class="spinner"></span></div>
+	<!-- end #page-loader -->
+
+<div id="page-container" class="fade page-sidebar-fixed page-header-fixed">
+		<!-- begin #header -->
+		<div id="header" class="header navbar navbar-default navbar-fixed-top">
+			<!-- begin container-fluid -->
+			<div class="container-fluid">
+				<!-- begin mobile sidebar expand / collapse button -->
+				<div class="navbar-header">
+					<a href="index.html" class="navbar-brand" style="font-family:Stencil;font-size:30px;width:230px"><span class="navbar-logo"></span>Blue Tech</a>
+					<button type="button" class="navbar-toggle" data-click="sidebar-toggled">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				</div>
+				<!-- end mobile sidebar expand / collapse button -->
+				
+				<!-- begin header navigation right -->
+				<ul class="nav navbar-nav navbar-right">
+									
+					<li class="dropdown navbar-user">
+						<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
+							<span class="hidden-xs">NIHAR DODIYA</span> <b class="caret"></b>
+						</a>
+						<ul class="dropdown-menu animated fadeInLeft">
+							<li class="arrow"></li>
+							<li><a href="javascript:;">Edit Profile</a></li>
+							<li><a href="javascript:;"><span class="badge badge-danger pull-right">2</span> Inbox</a></li>
+							<li><a href="javascript:;">Calendar</a></li>
+							<li><a href="javascript:;">Setting</a></li>
+							<li class="divider"></li>
+							<li><a href="../Logout.aspx">Log Out</a></li>
+						</ul>
+					</li>
+				</ul>
+				<!-- end header navigation right -->
+			</div>
+			<!-- end container-fluid -->
+		</div>
+		<!-- end #header -->
+		
+		<!-- begin #sidebar -->
+		<div id="sidebar" class="sidebar">
+			<!-- begin sidebar scrollbar -->
+			<div data-scrollbar="true" data-height="100%">
+				<!-- begin sidebar user -->
+				<ul class="nav">
+					<li class="nav-profile">
+						
+						<div class="info">
+							<asp:Label runat="server" ID="lblUserName" Text=""></asp:Label>
+							<small><asp:Label runat="server" ID="lblDes" Text=""></asp:Label></small>
+						</div>
+					</li>
+				</ul>
+				<!-- end sidebar user -->
+				<!-- begin sidebar nav -->
+				<ul class="nav">
+					<li class="nav-header">Navigation</li>
+					<li class="has-sub">
+						<a href="javascript:;">
+						    <b class="caret pull-right"></b>
+						    <i class="fa fa-laptop"></i>
+						    <span>
+						        Dashboard
+					        </span>
+					    </a>
+						<ul class="sub-menu">
+						    <li class="active"><a href="index.html">Dashboard v1</a></li>
+						    <li><a href="index_v2.html">Dashboard v2 <i class="fa fa-paper-plane text-theme m-l-5"></i></a></li>
+						</ul>
+					</li>
+					
+					<li id="li_AppoMaster" runat="server" class="has-sub">
+						<a href="javascript:;">
+						    <b class="caret pull-right"></b>
+						    <i class="fa fa-suitcase"></i>
+						    <span>
+						        Appointment Master
+						    </span> 
+						</a>
+						<ul class="sub-menu" >
+							<li id="sm_AppointmentEntry" runat="server" ><a href="AppointmentEntry.aspx" >Appointment Entry</a></li>
+							<li id="sm_AppointmentToday" runat="server" ><a href="TodayEntry.aspx" >Current Data Entry</a></li>
+						</ul>
+					</li>
+					
+                    <li id="li_MasterForms" runat="server" class="has-sub">
+						<a href="javascript:;">
+						    <b class="caret pull-right"></b>
+						    <i class="fa fa-suitcase"></i>
+						    <span>
+						        Form Master
+						    </span> 
+						</a>
+						<ul class="sub-menu" >
+							<li id="sm_PatientMaster" runat="server" ><a href="PatientMaster.aspx" >Patient Master</a></li>
+							<li id="sm_AreaMaster" runat="server" ><a href="AreaMaster.aspx" >Area Master</a></li>
+							<li id="sm_RefMaster" runat="server" ><a href="RefDoctor.aspx" >Reference Doctor Master</a></li>
+							<li id="sm_MedicineMaster" runat="server" ><a href="MedicineMaster.aspx" >Medicine Master</a></li>
+							<li id="sm_UtilityMaster" runat="server" ><a href="UtilityMaster.aspx" >Utility Master</a></li>
+						</ul>
+					</li>
+
+                    <li id="menu_viewpat" runat="server">
+						<a href="ViewPatient.aspx">
+							<i class="fa fa-sign-out"></i><span>View Patient</span>
+						</a>
+					</li>
+
+                    <li id="menu_password" runat="server">
+						<a href="ChangePassword.aspx">
+							<i class="fa fa-sign-out"></i><span>Change Password</span>
+						</a>
+					</li>
+
+					<li>
+						<a href="../Logout.aspx">
+							<i class="fa fa-sign-out"></i><span>Logout</span>
+						</a>
+					</li>
+					
+					<!-- begin sidebar minify button -->
+					<li><a href="javascript:;" class="sidebar-minify-btn" data-click="sidebar-minify"><i class="fa fa-angle-double-left"></i></a></li>
+			        <!-- end sidebar minify button -->
+				</ul>
+				<!-- end sidebar nav -->
+			</div>
+			<!-- end sidebar scrollbar -->
+		</div>
+		<div class="sidebar-bg"></div>
+        
+    <div id="content" class="content">
+    <div>
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+    </div> 
+
+    	<a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top fade" data-click="scroll-top"><i class="fa fa-angle-up"></i></a>
+	</div>
+	
+	<!-- ================== BEGIN BASE JS ================== -->
+	<script src="../assets/plugins/jquery-1.8.2/jquery-1.8.2.min.js"></script>
+	<script src="../assets/plugins/jquery-ui-1.10.4/ui/minified/jquery-ui.min.js"></script>
+	<script src="../assets/plugins/bootstrap-3.2.0/js/bootstrap.min.js"></script>
+	<!--[if lt IE 9]>
+		<script src="assets/crossbrowserjs/html5shiv.js"></script>
+		<script src="assets/crossbrowserjs/respond.min.js"></script>
+		<script src="assets/crossbrowserjs/excanvas.min.js"></script>
+	<![endif]-->
+	<script src="../assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+	<script src="../assets/plugins/jquery-cookie/jquery.cookie.js"></script>
+	<!-- ================== END BASE JS ================== -->
+	
+	<!-- ================== BEGIN PAGE LEVEL JS ================== -->
+	<!--<script src="../assets/plugins/gritter/js/jquery.gritter.js"></script>-->
+	<script src="../assets/plugins/flot/jquery.flot.min.js"></script>
+	<script src="../assets/plugins/flot/jquery.flot.time.min.js"></script>
+	<script src="../assets/plugins/flot/jquery.flot.resize.min.js"></script>
+	<script src="../assets/plugins/flot/jquery.flot.pie.min.js"></script>
+	<script src="../assets/plugins/sparkline/jquery.sparkline.js"></script>
+	<script src="../assets/plugins/jquery-jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
+	<script src="../assets/plugins/jquery-jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+	<script src="../assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+	<script src="../assets/js/dashboard.min.js"></script>
+	<script src="../assets/js/apps.min.js"></script>
+
+    <script src="../assets/plugins/DataTables-1.9.4/js/jquery.dataTables.js"></script>
+	<script src="../assets/plugins/DataTables-1.9.4/js/data-table.js"></script>
+   
+
+    <script src="../assets/plugins/parsley/dist/parsley.js"></script>
+    
+    <script src="../assets/plugins/switchery/switchery.min.js" ></script>
+	<script src="../assets/plugins/powerange/powerange.min.js"></script>
+	<script src="../assets/js/form-slider-switcher.demo.min.js"></script>
+
+	<script src="../assets/js/ui-modal-notification.demo.min.js"></script>
+	
+    <script src="../assets/js/form-plugins.demo.min.js"></script>
+	
+    
+<!-- ================== END PAGE LEVEL JS ================== -->
+<script>
+    $(document).ready(function () {
+        App.init();
+        FormSliderSwitcher.init();
+        Dashboard.init();
+        FormPlugins.init();
+    });
+</script>
+</body>
+</html>
